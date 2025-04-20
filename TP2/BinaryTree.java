@@ -103,17 +103,18 @@ public class BinaryTree <T>{
 	
 	
 	public  int contarHojas(BinaryTree<T> binaryTree) {
-		return this.contarRecursivo(binaryTree);
+		return this.contarRecursivo2(binaryTree);
 				}
-	public int contarRecursivo2(BinaryTree<T> ab) {
-		if ((ab.data == null) || (ab == null))
+	private int contarRecursivo2(BinaryTree<T> ab) {
+		if ((ab.data == null) || (ab == null)) //o puedo hacer si no es empty 
 			return  0; 
-		int suma = 1;
+		if (!ab.hasLeftChild() && !ab.hasRightChild()) // si es una hoja
+			  return 1; //devuelve 1
+		int suma=0;
 		if (ab.hasLeftChild()) {
-			 suma +=contarRecursivo2(ab.leftChild); }
+			 suma += contarRecursivo2(ab.leftChild); }
 		if (ab.hasRightChild()) {
 			suma +=contarRecursivo2(ab.rightChild);}
-		suma ++;
 		return suma;
 		
 		}
@@ -130,7 +131,17 @@ public class BinaryTree <T>{
 	}
 	
 	
-
+	//is empty pregunto afuera
+	public BinaryTree<T> espejo2(BinaryTree<T> ab){
+		BinaryTree<T> ae = new BinaryTree<T>();
+		ae.setData(ab.data); 
+		if (ab.hasLeftChild())
+			ae.addRightChild(espejo2(ab.getLeftChild())); // Toma el hijo derecho del árbol original (ab). Llama recursivamente sobre ese hijo!
+		if (ab.hasRightChild())
+			ae.addLeftChild(espejo2(ab.getRightChild()));
+		return ae;
+	}
+	
 	// 0<=n<=m
 	public void imprimeEntreNivelesNormal(){
 		 BinaryTree<T> ab = null; // para guardar el nodo del arbol temporalmente

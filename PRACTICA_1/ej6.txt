@@ -1,0 +1,15 @@
+6. Análisis de las estructuras de listas provistas por la API de Java.
+
+a. ¿En qué casos ArrayList ofrece un mejor rendimiento que LinkedList?
+Acceso aleatorio: ArrayList acceso rapido por index  O(1). En cambio, LinkedList se tiene que recorrer toda/parcialmente para encontrar un elemento O(n)
+Uso de memoria: las linkedlist usan mas memoria por los punteros adicionales
+
+b. ¿Cuándo LinkedList puede ser más eficiente que ArrayList?
+Inserciones y eliminaciones frecuentes al principio o al final de la lista: LinkedList tiene un rendimiento O(1) para la inserción y eliminación de elementos al principio o al final de la lista ya que solo se cambian referencias . ArrayList puede requerir la reasignación y el desplazamiento de elementos para mantener la continuidad del arreglo interno, lo que puede ser costoso, especialmente para listas grandes.
+
+c. ¿Qué diferencia encuentra en el uso de la memoria en ArrayList y LinkedList?
+Internamente, ArrayList almacena sus elementos en un arreglo dinámico. Este arreglo se redimensiona automáticamente según sea necesario para manejar la adición o eliminación de elementos. Como resultado, ArrayList tiende a utilizar más memoria que LinkedList para almacenar la misma cantidad de elementos
+LinkedList internamente utiliza una lista doblemente enlazada para almacenar sus elementos. Cada nodo en la lista contiene una referencia al elemento siguiente y al anterior en la lista. Cada nodo en LinkedList requiere espacio adicional para almacenar las referencias a los nodos vecinos, lo que puede resultar en un mayor uso de memoria en comparación con ArrayList, especialmente para listas grandes. 
+
+d. ¿En qué casos sería preferible usar un ArrayList o un LinkedList?
+ArrayList es preferible cuando necesitas acceso aleatorio eficiente y cuando las operaciones principales son agregar o eliminar elementos al final de la lista. Por otro lado, LinkedList es más adecuado cuando necesitas agregar o eliminar elementos frecuentemente en diferentes partes de la lista, especialmente al principio, al final o en el medio.

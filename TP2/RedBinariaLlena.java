@@ -26,11 +26,14 @@ public class RedBinariaLlena {
 		}
 		return sum;
 	}
+	
+	
+	//opcion 2
 
 	private int retardoReenvioRecursivo(BinaryTree<Integer> ab) {
 		int sumIzq, sum, sumDer;
 		if (ab.isLeaf()) { // si es hoja
-			sum = ab.getData();
+			sum = ab.getData(); // cuando se choca con la hoja inicializa sum con su dato
 		} else {
 			sumIzq = retardoReenvioRecursivo(ab.getLeftChild());
 			sumDer = retardoReenvioRecursivo(ab.getRightChild());
@@ -38,7 +41,7 @@ public class RedBinariaLlena {
 				sum = sumIzq;
 			else
 				sum = sumDer;
-			sum += ab.getData();
+			sum += ab.getData(); // se le suma el nodo que espera 
 
 		}
 		return sum;
